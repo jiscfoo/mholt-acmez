@@ -78,17 +78,17 @@ type Order struct {
 	// required.  For final orders (in the "valid" or "invalid" state),
 	// the authorizations that were completed.  Each entry is a URL from
 	// which an authorization can be fetched with a POST-as-GET request.
-	Authorizations []string `json:"authorizations"`
+	Authorizations []string `json:"authorizations,omitempty"`
 
 	// finalize (required, string):  A URL that a CSR must be POSTed to once
 	// all of the order's authorizations are satisfied to finalize the
 	// order.  The result of a successful finalization will be the
 	// population of the certificate URL for the order.
-	Finalize string `json:"finalize"`
+	Finalize string `json:"finalize,omitempty"`
 
 	// certificate (optional, string):  A URL for the certificate that has
 	// been issued in response to this order.
-	Certificate string `json:"certificate"`
+	Certificate string `json:"certificate,omitempty"`
 
 	// Similar to new-account, the server returns a 201 response with
 	// the URL to the order object in the Location header.
